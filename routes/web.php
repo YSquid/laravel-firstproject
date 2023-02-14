@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\PagesController;
+use App\Http\Controllers\PostsController;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\ProductsController;
@@ -49,33 +51,9 @@ Route::get('/products', [ProductsController::class, 'index'])->name('products');
 // ]);
 
 
-
-
-
-
-
-
-
 //Laravel 8 Method 2 - same output as above
 
 // Route::get('/products', 'App\Http\Controllers\ProductsController@index');
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -96,3 +74,13 @@ Route::get('/products', [ProductsController::class, 'index'])->name('products');
 // Route::get('/users', function() {
 //     return redirect('/');
 // });
+
+
+// ==== ROUTES WITH MORE COMPLEX CONTROLLERS EXAMPLES ======
+
+Route::get('/pages', [PagesController::class, 'index']);
+Route::get('/about', [PagesController::class, 'about']);
+
+// ==== POSTS ENDPOINTS ===/
+
+Route::get('/posts', [PostsController::class, 'index']);

@@ -12,8 +12,7 @@ class ProductsController extends Controller
         //here the . acts like a path direction
         //this uses the global route method to print the path of the route named products
         print_r(route('products'));
-        //COMPACT METHOD
-        //compact is used to pass variables to the view
+        
         return view('products.index');
     }
 
@@ -34,6 +33,8 @@ class ProductsController extends Controller
         //null ccoalescer ?? - if left operation is null, it returns right side
         $products = $data[$name] ?? 'Product ' . $name . ' does not exist.';
 
+        //COMPACT METHOD
+        //compact is used to pass variables to the view
         return view('products.index', compact('products', 'title', 'description'));
     }
 }
